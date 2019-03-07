@@ -1,12 +1,9 @@
+import './ProductsListContainer.css';
+
 import React, { Component, Fragment } from 'react';
 
 import Products from 'components/Products';
 import ProductCreateContainer from "components/ProductCreateContainer";
-
-const header = {
-  marginBottom: 0,
-  fontWeight: 600,
-};
 
 export default class ProductsListContainer extends Component {
   constructor(props) {
@@ -16,11 +13,6 @@ export default class ProductsListContainer extends Component {
       products: [],
       loading: true,
     };
-
-    // this.handleCreateProduct = this.handleCreateProduct.bind(this);
-    // this.handleEditProduct = this.handleEditProduct.bind(this);
-    // this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
-
   }
 
   loadProducts() {
@@ -62,9 +54,10 @@ export default class ProductsListContainer extends Component {
     const id = data.productId;
 
     fetch(`http://localhost:3000/api/products/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        _id: data.productId,
         name: data.name,
         price: data.price,
       }),
@@ -73,7 +66,7 @@ export default class ProductsListContainer extends Component {
       .then((updateProduct) => {
         this.setState({
           products: this.state.products.map((product) => {
-            return product.id !== updateProduct.id
+            return product._id !== updateProduct._id
               ? product : updateProduct
           }),
         })
@@ -94,7 +87,7 @@ export default class ProductsListContainer extends Component {
       .then((delProduct) => {
         this.setState(() => ({
           products: this.state.products.filter((product) => {
-            return product.id !== delProduct.id
+            return product._id !== delProduct.id
           }),
         }))
       })
@@ -118,7 +111,7 @@ export default class ProductsListContainer extends Component {
 
     return (
       <Fragment>
-        <h1 style={header}>Product list</h1>
+        <h1 className="header">Product list</h1>
         <ProductCreateContainer onSend={this.handleCreateProduct}/>
         <Products products={products}
                   onEdit={this.handleEditProduct}
