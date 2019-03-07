@@ -9,7 +9,6 @@ import ProductDeleteContainer from 'components/ProductDeleteContainer';
 export default class Products extends Component {
   render() {
     const { products, onEdit, onDelete } = this.props;
-    console.log(products);
 
     return (
       <Fragment>
