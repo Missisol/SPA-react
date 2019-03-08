@@ -29,7 +29,6 @@ export default class CustomersListContainer extends Component {
   };
 
   handleCreateCustomer = (customer) => {
-    console.log(customer);
     fetch('http://localhost:3000/api/customers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
