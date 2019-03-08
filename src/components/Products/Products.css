@@ -3,7 +3,6 @@
 }
 
 .headWrapper {
-    display: flex;
     margin-bottom: 30px;
 }
 
@@ -11,4 +10,12 @@
     align-self: flex-end;
     margin-left: 260px;
     margin-top: -50px;
+}
+
+.headWrapper > button > a {
+    text-decoration: none;
+}
+
+.headWrapper > button > a:hover {
+    color: #ffffff;
 }

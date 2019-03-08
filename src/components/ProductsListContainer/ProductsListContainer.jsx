@@ -54,7 +54,7 @@ export default class ProductsListContainer extends Component {
     const id = data.productId;
 
     fetch(`http://localhost:3000/api/products/${id}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         _id: data.productId,
