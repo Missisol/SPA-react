@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const routeProducts = require('./routes/products');
 const routeCustomers = require('./routes/customers');
 const routeInvoices = require('./routes/invoices');
-const routeInvoiceItems = require('./routes/invoiceitems');
+const routeInvoiceItems = require('./routes/invoiceItems');
 
 mongoose.connect('mongodb://localhost:27017/spa_react', { useNewUrlParser: true });
 
@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 
 app.use('/api/products', routeProducts);
 app.use('/api/customers', routeCustomers);
-// app.use('/api/invoices', routeInvoices);
-// app.use('/api/invoiceitems', routeInvoiceItems);
+app.use('/api/invoices', routeInvoices);
+app.use('/api/invoices', routeInvoiceItems);
 
 app.use(function (req, res, next) {
   let error = new Error('Page not found');
