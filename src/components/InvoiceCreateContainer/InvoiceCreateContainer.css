@@ -1,0 +1,7 @@
+.buttonSaveInvoice > a {
+    text-decoration: none;
+}
+
+.buttonSaveInvoice > a:hover {
+    color: #ffffff;
+}
