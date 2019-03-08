@@ -59,28 +59,28 @@ export default class CustomerEditContainer extends Component {
           <Modal.Body>
             <Form>
               <FormGroup controlId="formHorizontalName">
-                <Form.Label sm={2}>Name</Form.Label>
-                <Form.Label sm={10}>
+                <Form.Label className="col-sm-2">Name</Form.Label>
+                <Form.Label className="col-sm-12">
                   <FormControl onChange={this.handleChange} type="text" placeholder="Name" name="name"
                                value={name}/>
                 </Form.Label>
               </FormGroup>
               <FormGroup controlId="formHorizontalAddress">
-                <Form.Label sm={2}>Address</Form.Label>
-                <Form.Label sm={10}>
+                <Form.Label className="col-sm-2">Address</Form.Label>
+                <Form.Label className="col-sm-12">
                   <FormControl onChange={this.handleChange} type="text" placeholder="Address"
                                name="address" value={address}/>
                 </Form.Label>
               </FormGroup>
               <FormGroup controlId="formHorizontalPhone">
-                <Form.Label sm={2}>Phone</Form.Label>
-                <Form.Label sm={10}>
+                <Form.Label className="col-sm-2">Phone</Form.Label>
+                <Form.Label className="col-sm-12">
                   <FormControl onChange={this.handleChange} type="text" placeholder="Phone"
                                name="phone" value={phone}/>
                 </Form.Label>
               </FormGroup>
               <FormGroup>
-                <Form.Label sm={10}>
+                <Form.Label className="col-sm-2">
                   <Button onClick={this.handleSubmit}>Save</Button>
                 </Form.Label>
               </FormGroup>
