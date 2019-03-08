@@ -1,3 +1,14 @@
 .buttonCell {
     width: 40px;
 }
+
+.headWrapper {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.headWrapper > button {
+    align-self: flex-end;
+    margin-left: 260px;
+    margin-top: -50px;
+}
