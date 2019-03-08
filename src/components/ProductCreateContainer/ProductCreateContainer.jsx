@@ -50,7 +50,7 @@ export default class ProductCreateContainer extends Component {
     return (
       <Fragment>
         <div className="headWrapper d-sm-flex">
-          <Button variant="outline-primary" className="buttonCreate" onClick={this.handleShow}>Create</Button>
+          <Button variant="outline-primary" onClick={this.handleShow}>Create</Button>
         </div>
         <Modal show={show} onHide={this.handleClose}>
           <Modal.Header closeButton>

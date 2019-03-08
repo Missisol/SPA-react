@@ -11,9 +11,17 @@ router.get('/', async (req, res) => {
   res.json(products);
 });
 
+router.get('/:id', async (req, res) => {
+  const product = await ProductModel.findById(req.params.id)
+    .catch((error) => {
+      console.log(error);
+    });
+  res.json(product);
+});
+
 router.post('/', async (req, res) => {
   const name = req.body.name;
-  const price = req.body.price;
+  const price = parseFloat(req.body.price);
   const product = new ProductModel({
     name: name,
     price: price,
@@ -27,7 +35,7 @@ router.post('/', async (req, res) => {
   res.json(newProduct);
 });
 
-router.patch('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   const productId = req.params.id;
   const name = req.body.name;
   const price = parseFloat(req.body.price);
@@ -50,6 +58,5 @@ router.delete('/:id', async (req, res) => {
 
   res.json(req.params);
 });
-
 
 module.exports = router;
