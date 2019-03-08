@@ -19,7 +19,6 @@ router.get('/:id', async (req, res) => {
   res.json(invoice);
 });
 
-
 router.post('/', async (req, res) => {
   const customerId = req.body.customer_id;
   const discount = req.body.discount;
@@ -38,7 +37,6 @@ router.post('/', async (req, res) => {
     .catch(() => {
       console.log('Error');
     });
-
   res.json(newInvoice);
 });
 
@@ -48,26 +46,26 @@ router.patch('/:id', async (req, res) => {
   const discount = req.body.discount;
   const total = parseFloat(req.body.total);
 
-  await InvoiceModel.updateOne({_id: invoiceId}, {$set: {
+  await InvoiceModel.updateOne({ _id: invoiceId }, {
+    $set: {
       customer_id: customerId,
       discount: discount,
       total: total,
-  }})
+    }
+  })
     .catch(() => {
       console.log('Error');
     });
-
   res.json(req.body);
 });
 
 router.delete('/:id', async (req, res) => {
   const invoiceId = req.params.id;
 
-  await InvoiceModel.deleteOne({_id: invoiceId})
+  await InvoiceModel.deleteOne({ _id: invoiceId })
     .catch((error) => {
       console.log(error);
     });
-
   res.json(req.params);
 });
 

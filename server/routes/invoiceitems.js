@@ -41,7 +41,6 @@ router.patch('/:invoice_id/items/:id', async (req, res) => {
     .catch(() => {
       console.log('Error');
     });
-
   res.json(req.body);
 });
 
@@ -52,7 +51,6 @@ router.delete('/:invoice_id/items/:id', async (req, res) => {
     .catch((error) => {
       console.log(error);
     });
-
   res.json(req.params);
 });
 

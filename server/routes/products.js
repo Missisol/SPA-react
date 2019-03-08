@@ -27,11 +27,10 @@ router.post('/', async (req, res) => {
     price: price,
   });
   await product.save();
-  const newProduct = await ProductModel.findOne({name: name, price: price})
+  const newProduct = await ProductModel.findOne({ name: name, price: price })
     .catch(() => {
       console.log('Error');
     });
-
   res.json(newProduct);
 });
 
@@ -40,22 +39,20 @@ router.put('/:id', async (req, res) => {
   const name = req.body.name;
   const price = parseFloat(req.body.price);
 
-  await ProductModel.updateOne({_id: productId}, {$set: {name: name, price: price}})
+  await ProductModel.updateOne({ _id: productId }, { $set: { name: name, price: price } })
     .catch(() => {
       console.log('Error');
     });
-
   res.json(req.body);
 });
 
 router.delete('/:id', async (req, res) => {
   const productId = req.params.id;
 
-  await ProductModel.deleteOne({_id: productId})
+  await ProductModel.deleteOne({ _id: productId })
     .catch((error) => {
       console.log(error);
     });
-
   res.json(req.params);
 });
 

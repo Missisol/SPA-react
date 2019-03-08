@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const customer = await CustomerModel.findOne({_id: req.params.id})
+  const customer = await CustomerModel.findOne({ _id: req.params.id })
     .catch((error) => {
       console.log(error);
     });
@@ -37,7 +37,6 @@ router.post('/', async (req, res) => {
     .catch(() => {
       console.log('Error');
     });
-
   res.json(newCustomer);
 });
 
@@ -48,12 +47,11 @@ router.put('/:id', async (req, res) => {
   const phone = req.body.phone;
 
   await CustomerModel.updateOne({ _id: customerId }, {
-    $set: { name: name, address: address, phone: phone,}
+    $set: { name: name, address: address, phone: phone, }
   })
     .catch(() => {
       console.log('Error');
     });
-
   res.json(req.body);
 });
 
@@ -64,7 +62,6 @@ router.delete('/:id', async (req, res) => {
     .catch((error) => {
       console.log(error);
     });
-
   res.json(req.params);
 });
 
