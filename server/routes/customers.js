@@ -51,8 +51,6 @@ router.patch('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   const customerId = req.params.id;
-  console.log(req.params);
-
 
   await CustomerModel.deleteOne({ _id: customerId })
     .catch((error) => {
