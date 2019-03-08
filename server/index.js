@@ -18,7 +18,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api/products', routeProducts);
-// app.use('/api/customers', routeCustomers);
+app.use('/api/customers', routeCustomers);
 // app.use('/api/invoices', routeInvoices);
 // app.use('/api/invoiceitems', routeInvoiceItems);
 
