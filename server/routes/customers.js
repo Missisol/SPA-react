@@ -11,6 +11,14 @@ router.get('/', async (req, res) => {
   res.json(customers);
 });
 
+router.get('/:id', async (req, res) => {
+  const customer = await CustomerModel.findOne({_id: req.params.id})
+    .catch((error) => {
+      console.log(error);
+    });
+  res.json(customer);
+});
+
 router.post('/', async (req, res) => {
   const name = req.body.name;
   const address = req.body.address;
@@ -33,7 +41,7 @@ router.post('/', async (req, res) => {
   res.json(newCustomer);
 });
 
-router.patch('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   const customerId = req.params.id;
   const name = req.body.name;
   const address = req.body.address;
@@ -59,6 +67,5 @@ router.delete('/:id', async (req, res) => {
 
   res.json(req.params);
 });
-
 
 module.exports = router;

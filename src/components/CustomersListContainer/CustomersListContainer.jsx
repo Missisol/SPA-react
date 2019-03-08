@@ -53,7 +53,7 @@ export default class CustomersListContainer extends Component {
     const id = data.customerId;
 
     fetch(`http://localhost:3000/api/customers/${id}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         _id: data.customerId,
