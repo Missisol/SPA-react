@@ -52,7 +52,7 @@ export default class InvoicesListContainer extends Component {
       .then((response) => response.json())
       .then((items) => {
         items.forEach((item) => {
-          fetch(`http://localhost:3000/api/invoices/${invoiceId}/items/${item.id}`, {
+          fetch(`http://localhost:3000/api/invoices/${invoiceId}/items/${item._id}`, {
             method: 'DELETE',
           })
             .then((response) => response.json())
@@ -71,11 +71,11 @@ export default class InvoicesListContainer extends Component {
     })
       .then((response) => response.json())
       .then((delInvoice) => {
-        this.setState(() => ({
+        this.setState({
           invoices: this.state.invoices.filter((invoice) => {
-            return invoice.id !== delInvoice.id
+            return invoice._id !== delInvoice.id
           }),
-        }))
+        })
       })
       .catch(() => {
         console.log('Error');
@@ -85,12 +85,6 @@ export default class InvoicesListContainer extends Component {
   componentDidMount() {
     this.loadInvoices();
   }
-
-  // componentWillUnmount() {
-  //   this.setState({
-  //     loading: false,
-  //   })
-  // }
 
   render() {
     const { invoices, loading } = this.state;

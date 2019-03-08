@@ -265,7 +265,6 @@ export default class InvoiceEditContainer extends Component {
 
   render() {
     const { discount, allCustomers, allProducts, productsTable, total } = this.state;
-    console.log('tab', productsTable);
 
     return (
       <Fragment>

@@ -29,7 +29,7 @@ export default class Invoices extends Component {
               <td><Link to={`invoices/${invoice._id}`}>edit</Link></td>
               <td><InvoiceDeleteContainer
                 onDel={onDelete}
-                invoiceId={invoice.id}
+                invoiceId={invoice._id}
               /></td>
             </tr>
           )}
