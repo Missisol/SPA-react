@@ -1,5 +1,3 @@
-import './ProductCreateContainer.css';
-
 import React, { Component, Fragment } from 'react';
 import { Modal, Button, FormGroup, Form, FormControl } from "react-bootstrap";
 
