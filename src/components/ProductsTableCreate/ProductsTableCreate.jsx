@@ -4,14 +4,11 @@ import { Table } from 'react-bootstrap';
 import ProductInputCreate from "components/ProductInputCreate";
 
 export default class ProductsTableCreate extends Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.onDelete = this.onDelete.bind(this);
-  // }
 
-  onDelete = (id) => {
-    this.props.onItemDelete(id);
+  onDelete = (e) => {
+    this.props.onItemDelete({
+      id: e.target.dataset.id,
+    });
   };
 
   render() {
@@ -38,7 +35,10 @@ export default class ProductsTableCreate extends Component {
                 />
               </td>
               <td>
-                <button type="button" className="close" onClick={this.onDelete.bind(this, product._id)}>x</button>
+                <button type="button" className="close" data-id={product._id}
+                        onClick={this.onDelete}>
+                  x
+                </button>
               </td>
             </tr>
           )}

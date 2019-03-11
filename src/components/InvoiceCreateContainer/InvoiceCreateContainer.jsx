@@ -71,16 +71,16 @@ export default class InvoiceCreateContainer extends Component {
     })
   };
 
-  handleItemDelete = (id) => {
+  handleItemDelete = (obj) => {
     this.setState({
       productsTable: this.state.productsTable.filter((product) => {
-        return product._id !== id;
+        return product._id !== obj.id;
       }),
       arrProductItems: this.state.arrProductItems.filter((product) => {
-        return product._id !== id;
+        return product._id !== obj.id;
       }),
       total: Math.round((this.state.arrProductItems.filter((product) => {
-        return product._id !== id;
+        return product._id !== obj.id;
       }).map((str) => {
         return parseInt(str.quantity) * parseFloat(str.price);
       }).reduce((prev, current) => {
@@ -119,7 +119,8 @@ export default class InvoiceCreateContainer extends Component {
       })
   };
 
-  handleCreateInvoice = (discount, customer_id, total, productsTable, arrProductItems) => {
+  handleCreateInvoice = () => {
+   const {discount, customer_id, total, productsTable, arrProductItems} = this.state;
     if (discount && customer_id && productsTable && parseFloat(total) !== 0) {
       fetch(`http://localhost:3000/api/invoices`, {
         method: 'POST',
@@ -169,7 +170,7 @@ export default class InvoiceCreateContainer extends Component {
   }
 
   render() {
-    const { discount, allCustomers, allProducts, productsTable, total, customer_id, arrProductItems } = this.state;
+    const { discount, allCustomers, allProducts, productsTable, total } = this.state;
 
     return (
       <Fragment>
@@ -213,7 +214,7 @@ export default class InvoiceCreateContainer extends Component {
         />
         <h2>Total: {total}</h2>
         <Button variant="outline-primary" className="buttonSaveInvoice"
-                onClick={this.handleCreateInvoice.bind(this, discount, customer_id, total, productsTable, arrProductItems)}>
+                onClick={this.handleCreateInvoice}>
           Save invoice
         </Button>
       </Fragment>
