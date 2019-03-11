@@ -292,9 +292,11 @@ export default class InvoiceEditContainer extends Component {
             </Form.Label>
           </FormGroup>
           <FormGroup controlId="formProduct">
-            <Form.Label className="col-sm-8 font-weight-bold">Add product</Form.Label>
+            <Form.Label className="col-sm-4 font-weight-bold">Add product</Form.Label>
             <Button variant="outline-secondary" className="buttonAdd" onClick={this.handleAdd}>Add</Button>
-            <Form.Label className="col-sm-4">
+          </FormGroup>
+          <FormGroup>
+            <Form.Label className="col-sm-5">
               <FormControl as="select" onChange={this.handleChange} name="product_id">
                 <option>Select...</option>
                 {allProducts.map((oneProduct) =>
@@ -304,13 +306,13 @@ export default class InvoiceEditContainer extends Component {
             </Form.Label>
           </FormGroup>
         </Form>
-        <ProductsTableEdit productsTable={productsTable}
-                           onItemCount={this.handleItemCount}
-                           onItemDelete={this.handleItemDelete}
+        < ProductsTableEdit productsTable={productsTable}
+                            onItemCount={this.handleItemCount}
+                            onItemDelete={this.handleItemDelete}
         />
         <h2>Total: {total}</h2>
-        <Button variant="outline-primary" className="buttonSaveInvoice"
-                onClick={this.handleEditInvoice}>
+        < Button variant="outline-primary" className="buttonSaveInvoice"
+                 onClick={this.handleEditInvoice}>
           Save changes
         </Button>
       </Fragment>

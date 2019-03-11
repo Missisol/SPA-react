@@ -196,9 +196,11 @@ export default class InvoiceCreateContainer extends Component {
             </Form.Label>
           </FormGroup>
           <FormGroup controlId="formProduct">
-            <Form.Label className="col-sm-8 font-weight-bold">Add product</Form.Label>
+            <Form.Label className="col-sm-4 font-weight-bold">Add product</Form.Label>
             <Button variant="outline-secondary" className="buttonAdd" onClick={this.handleAdd}>Add</Button>
-            <Form.Label className="col-sm-4">
+          </FormGroup>
+            <FormGroup>
+            <Form.Label className="col-sm-5">
               <FormControl as="select" onChange={this.handleChange} name="product_id">
                 <option>Select...</option>
                 {allProducts.map((oneProduct) =>
