@@ -56,14 +56,14 @@ export default class ProductEditContainer extends Component {
           <Modal.Body>
             <Form>
               <FormGroup controlId="formHorizontalName">
-                <Form.Label className="col-sm-2">Name</Form.Label>
+                <Form.Label className="col-sm-2 font-weight-bold">Name</Form.Label>
                 <Form.Label className="col-sm-12">
                   <FormControl onChange={this.handleChange} type="text" placeholder="Name" name="name"
                                value={name}/>
                 </Form.Label>
               </FormGroup>
               <FormGroup controlId="formHorizontalPrice">
-                <Form.Label className="col-sm-2">Price</Form.Label>
+                <Form.Label className="col-sm-2 font-weight-bold">Price</Form.Label>
                 <Form.Label className="col-sm-12">
                   <FormControl onChange={this.handleChange} type="text" placeholder="Price"
                                name="price" value={price}/>
