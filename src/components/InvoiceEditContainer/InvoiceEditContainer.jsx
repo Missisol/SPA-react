@@ -112,16 +112,16 @@ export default class InvoiceEditContainer extends Component {
     });
   };
 
-  handleItemDelete = (id) => {
+  handleItemDelete = (obj) => {
     this.setState({
       productsTable: this.state.productsTable.filter((product) => {
-        return product._id !== id;
+        return product._id !== obj.id;
       }),
       arrProductItems: this.state.arrProductItems.filter((product) => {
-        return product._id !== id;
+        return product._id !== obj.id;
       }),
       total: Math.round((this.state.productsTable.filter((product) => {
-        return product._id !== id;
+        return product._id !== obj.id;
       }).map((str) => {
         return parseInt(str.quantity) * parseFloat(str.price);
       }).reduce((prev, current) => {
